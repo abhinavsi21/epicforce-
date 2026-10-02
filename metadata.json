@@ -1,0 +1,8 @@
+{
+  "name": "EpicForce.ai — Where Ideas Become Epic",
+  "description": "EpicForce.ai is a purpose-driven innovation platform building intelligent technology that amplifies humanity. Where ideas become epic.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
