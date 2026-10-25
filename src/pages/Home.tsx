@@ -5,11 +5,14 @@ import { Mission } from '../components/Mission';
 import { Pillars } from '../components/Pillars';
 import { FounderSection } from '../components/FounderSection';
 import { ProductsOverview } from '../components/ProductsOverview';
+import { AIAajiLiveDemo } from '../components/AIAajiLiveDemo';
 import { InnerverseSection } from '../components/InnerverseSection';
 import { AIAajiSection } from '../components/AIAajiSection';
+import { InnerverseInsights } from '../components/InnerverseInsights';
 import { WhyEpicforce } from '../components/WhyEpicforce';
 import { PartnershipCTA } from '../components/PartnershipCTA';
 import { Roadmap } from '../components/Roadmap';
+import { PartnerSpotlight } from '../components/PartnerSpotlight';
 import { ContactForm } from '../components/ContactForm';
 import { Footer } from '../components/Footer';
 import { ContactReason } from '../types';
@@ -53,15 +56,22 @@ export const HomePage: React.FC = () => {
       <ProductsOverview
         onScrollToInnerverse={() => scrollTo('innerverse')}
         onScrollToAIAaji={() => scrollTo('ai-aaji')}
+        onScrollToAIAajiDemo={() => scrollTo('ai-aaji-demo')}
       />
 
-      {/* 07. Flagship Product Showcase: Innerverse */}
+      {/* 06.5 Dedicated AI Aaji Live Voice Experience (Gemini Live · Aoede Voice) */}
+      <AIAajiLiveDemo />
+
+      {/* 07. Flagship Product Showcase: Innerverse (Explore on EpicForce + Launch Live) */}
       <InnerverseSection />
 
       {/* 08. Intelligence System Showcase: AI Aaji */}
       <AIAajiSection onJoinWaitlist={() => handleSelectPartnerAction('Technology')} />
 
-      {/* 09. Strategic Foundations: Why EpicForce? */}
+      {/* 09. Innerverse Thought Leadership / Insights (NEW) */}
+      <InnerverseInsights />
+
+      {/* 10. Strategic Foundations: Why EpicForce? */}
       <WhyEpicforce />
 
       {/* 10. Alignment & Capital: Build With Us */}
@@ -70,10 +80,13 @@ export const HomePage: React.FC = () => {
       {/* 11. Strategic Timeline: The Road Ahead */}
       <Roadmap />
 
-      {/* 12. Direct Verified Transmission: Contact Form */}
+      {/* 12. Promoting Partner Spotlight: Melukat Meditation Center */}
+      <PartnerSpotlight />
+
+      {/* 13. Direct Verified Transmission: Contact Form */}
       <ContactForm initialReason={selectedReason} />
 
-      {/* 13. Comprehensive Dark Footer */}
+      {/* 14. Comprehensive Dark Footer */}
       <Footer />
     </div>
   );

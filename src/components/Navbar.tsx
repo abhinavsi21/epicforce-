@@ -21,7 +21,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPartner }) => {
       setScrolled(window.scrollY > 24);
 
       if (location.pathname === '/') {
-        const sections = ['mission', 'pillars', 'products', 'innerverse', 'founders', 'roadmap', 'contact'];
+        const sections = [
+          'mission',
+          'pillars',
+          'products',
+          'ai-aaji-demo',
+          'innerverse',
+          'ai-aaji',
+          'insights',
+          'founders',
+          'roadmap',
+          'partners',
+          'contact',
+        ];
         let currentSection = '';
 
         for (const sectionId of sections) {
@@ -148,18 +160,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPartner }) => {
             )}
           </button>
 
-          {/* Direct link to external live product: myinnerverse.in */}
-          <a
-            href={INNERVERSE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackEvent('innerverse_cta_click', { source: 'navbar_desktop' })}
-            className="relative py-1 text-neutral-300 hover:text-[#22D3EE] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded px-1.5 inline-flex items-center gap-1 cursor-pointer"
-            aria-label="Innerverse live website (opens in new tab)"
+          {/* Smooth scroll to Innerverse on-page showcase */}
+          <button
+            onClick={() => handleNavClick('innerverse')}
+            aria-current={activeSection === 'innerverse' ? 'true' : undefined}
+            className={`relative py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded px-1.5 cursor-pointer ${
+              activeSection === 'innerverse' ? 'text-[#22D3EE]' : 'text-neutral-300 hover:text-white'
+            }`}
           >
             <span>Innerverse</span>
-            <ArrowUpRight className="w-3 h-3 text-[#22D3EE]" />
-          </a>
+            {activeSection === 'innerverse' && (
+              <span className="absolute bottom-0 left-1.5 right-1.5 h-0.5 bg-[#22D3EE] rounded-full" />
+            )}
+          </button>
+
+          <button
+            onClick={() => handleNavClick('insights')}
+            aria-current={activeSection === 'insights' ? 'true' : undefined}
+            className={`relative py-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded px-1.5 cursor-pointer ${
+              activeSection === 'insights' ? 'text-[#22D3EE]' : 'text-neutral-300 hover:text-white'
+            }`}
+          >
+            <span>Insights</span>
+            {activeSection === 'insights' && (
+              <span className="absolute bottom-0 left-1.5 right-1.5 h-0.5 bg-[#22D3EE] rounded-full" />
+            )}
+          </button>
 
           <button
             onClick={() => handleNavClick('founders')}
@@ -240,41 +266,63 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPartner }) => {
               {activeSection === 'products' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
             </button>
 
-            {/* Direct link to external live product: myinnerverse.in */}
+            {/* Innerverse Dual Options: On-page showcase + direct live launch */}
+            <button
+              onClick={() => handleNavClick('innerverse')}
+              className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
+            >
+              <span>04. Innerverse Showcase</span>
+              {activeSection === 'innerverse' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
+            </button>
             <a
               href={INNERVERSE_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 setMobileMenuOpen(false);
-                trackEvent('innerverse_cta_click', { source: 'navbar_mobile' });
+                trackEvent('innerverse_cta_click', { source: 'navbar_mobile_direct_launch' });
               }}
-              className="text-left py-3 min-h-[48px] text-[#22D3EE] hover:text-white transition-colors border-b border-white/10 pl-3 flex items-center justify-between"
-              aria-label="Innerverse live website (opens in new tab)"
+              className="text-left py-2.5 min-h-[44px] text-amber-300 hover:text-white transition-colors border-b border-white/10 pl-4 flex items-center justify-between text-base"
+              aria-label="Launch Live Innerverse on innervers.ai.studio (opens in new tab)"
             >
-              <span>↳ Innerverse (myinnerverse.in)</span>
+              <span>↳ Launch Live Innerverse (innervers.ai.studio)</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
+
+            <button
+              onClick={() => handleNavClick('insights')}
+              className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
+            >
+              <span>05. Insights & Research</span>
+              {activeSection === 'insights' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
+            </button>
 
             <button
               onClick={() => handleNavClick('founders')}
               className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
             >
-              <span>04. Founders & Team</span>
+              <span>06. Founders & Team</span>
               {activeSection === 'founders' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
             </button>
             <button
               onClick={() => handleNavClick('roadmap')}
               className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
             >
-              <span>05. The Road Ahead</span>
+              <span>06. The Road Ahead</span>
               {activeSection === 'roadmap' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
+            </button>
+            <button
+              onClick={() => handleNavClick('partners')}
+              className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
+            >
+              <span>07. Promoting Partners</span>
+              {activeSection === 'partners' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
             </button>
             <button
               onClick={() => handleNavClick('contact')}
               className="text-left py-3 min-h-[48px] hover:text-[#22D3EE] transition-colors border-b border-white/10 flex items-center justify-between cursor-pointer"
             >
-              <span>06. Contact</span>
+              <span>08. Contact</span>
               {activeSection === 'contact' && <span className="text-xs font-mono text-[#22D3EE]">●</span>}
             </button>
           </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight, ArrowUpRight, Compass, Bot } from 'lucide-react';
-import { INNERVERSE_URL, trackEvent } from '../config/links';
+import { INNERVERSE_URL, AI_AAJI_URL, trackEvent } from '../config/links';
 
 interface HeroProps {
   onExploreWork: () => void;
@@ -18,18 +18,21 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onInvestPartner }) =>
     if (!ctx) return;
 
     let animationFrameId: number;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    let width = (canvas.width = window.innerWidth * dpr);
-    let height = (canvas.height = window.innerHeight * dpr);
-    ctx.scale(dpr, dpr);
+
+    const updateCanvasSize = () => {
+      if (!canvas || !ctx) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+
+    updateCanvasSize();
 
     const handleResize = () => {
-      if (!canvas) return;
-      width = canvas.width = window.innerWidth * dpr;
-      height = canvas.height = window.innerHeight * dpr;
-      ctx.scale(dpr, dpr);
+      updateCanvasSize();
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
 
     const logicalWidth = window.innerWidth;
     const logicalHeight = window.innerHeight;
@@ -80,9 +83,18 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onInvestPartner }) =>
     };
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     let time = 0;
 
     const render = () => {
+      if (document.hidden) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+
       time += 0.02;
       const w = window.innerWidth;
       const h = window.innerHeight;
@@ -180,7 +192,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onInvestPartner }) =>
       ctx.arc(centralNexus.x, centralNexus.y, 3.5, 0, Math.PI * 2);
       ctx.fill();
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
     };
 
     render();
@@ -238,15 +252,22 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onInvestPartner }) =>
             rel="noopener noreferrer"
             onClick={() => trackEvent('innerverse_cta_click', { source: 'hero_badge' })}
             className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 border border-blue-500/20 text-center hover:bg-blue-500/20 hover:border-blue-400/40 transition-colors group/hero-link cursor-pointer"
-            aria-label="Innerverse live on myinnerverse.in (opens in new tab)"
+            aria-label="Innerverse live on innervers.ai.studio (opens in new tab)"
           >
             <Compass className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-            <span className="text-[11px] sm:text-xs">Product 01: Innerverse (myinnerverse.in ↗)</span>
+            <span className="text-[11px] sm:text-xs">Product 01: Innerverse (innervers.ai.studio ↗)</span>
           </a>
-          <div className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-center">
+          <a
+            href={AI_AAJI_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackEvent('ai_aaji_cta_click', { source: 'hero_badge' })}
+            className="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-center hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-colors group/hero-link cursor-pointer"
+            aria-label="AI Aaji website on aiaajiassistant.vercel.app (opens in new tab)"
+          >
             <Bot className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-            <span className="text-[11px] sm:text-xs">Product 02: AI Aaji · In Architecture</span>
-          </div>
+            <span className="text-[11px] sm:text-xs">Product 02: AI Aaji Website (aiaajiassistant.vercel.app ↗)</span>
+          </a>
         </div>
 
         {/* Action Buttons: Full width on mobile (<640px) with minimum 48px touch target */}

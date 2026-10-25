@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="skyGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="40%" stop-color="#0f172a" />
+      <stop offset="70%" stop-color="#070a18" />
+      <stop offset="100%" stop-color="#03050c" />
+    </radialGradient>
+    <linearGradient id="sunriseHorizon" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fb923c" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#b45309" stop-opacity="0.6" />
+    </linearGradient>
+    <radialGradient id="sunBurst" cx="68%" cy="62%" r="25%">
+      <stop offset="0%" stop-color="#fffbeb" stop-opacity="1" />
+      <stop offset="25%" stop-color="#fef08a" stop-opacity="0.8" />
+      <stop offset="60%" stop-color="#fb923c" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#fb923c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="mindsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="60%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0c4a6e" />
+    </linearGradient>
+    <linearGradient id="heartsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="60%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#881337" />
+    </linearGradient>
+    <linearGradient id="healthsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="60%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="soulsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="60%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky & Atmosphere -->
+  <rect width="600" height="800" fill="url(#skyGlow)" />
+  <rect y="440" width="600" height="200" fill="url(#sunriseHorizon)" opacity="0.3" />
+  <circle cx="410" cy="490" r="180" fill="url(#sunBurst)" />
+
+  <!-- Mountain Ranges & Misty Valley -->
+  <path d="M0,520 Q120,480 240,510 T480,490 T600,530 L600,800 L0,800 Z" fill="#1e293b" opacity="0.5" />
+  <path d="M0,560 Q180,510 320,550 T600,530 L600,800 L0,800 Z" fill="#0f172a" opacity="0.8" />
+  <path d="M0,610 Q140,570 280,600 T600,580 L600,800 L0,800 Z" fill="#090d16" />
+
+  <!-- Winding Golden River in Valley -->
+  <path d="M380,510 Q420,550 360,590 T430,640" stroke="#fef08a" stroke-width="4" fill="none" opacity="0.75" filter="url(#neonGlow)" />
+
+  <!-- Rocky Foreground Peak -->
+  <path d="M120,800 Q300,670 480,800 Z" fill="#03050a" />
+
+  <!-- Meditating Figure Silhouette -->
+  <g transform="translate(300, 680) scale(0.65)" fill="#020307">
+    <ellipse cx="0" cy="-60" rx="14" ry="17" />
+    <path d="M-8,-43 C-25,-35 -38,-15 -42,15 C-44,25 -25,28 -15,25 C-5,23 5,23 15,25 C25,28 44,25 42,15 C38,-15 25,-35 8,-43 Z" />
+    <path d="M-55,20 C-45,10 -25,18 0,18 C25,18 45,10 55,20 C50,30 25,28 0,30 C-25,28 -50,30 -55,20 Z" />
+  </g>
+
+  <!-- Sacred Geometry Mandala -->
+  <g transform="translate(300, 260)">
+    <!-- Main Outer Orbit Ring -->
+    <circle cx="0" cy="0" r="145" fill="none" stroke="#fef08a" stroke-width="1.8" opacity="0.85" filter="url(#neonGlow)" />
+    <circle cx="0" cy="0" r="175" fill="none" stroke="#fef08a" stroke-width="0.7" stroke-dasharray="2 4" opacity="0.4" />
+
+    <!-- Crosshair Cardinal Axes -->
+    <line x1="0" y1="-190" x2="0" y2="190" stroke="#fde047" stroke-width="0.8" opacity="0.5" />
+    <line x1="-190" y1="0" x2="190" y2="0" stroke="#fde047" stroke-width="0.8" opacity="0.5" />
+
+    <!-- Central Diamond Star -->
+    <path d="M0,-24 Q0,0 24,0 Q0,0 0,24 Q0,0 -24,0 Q0,0 0,-24 Z" fill="#fffbeb" filter="url(#neonGlow)" />
+    <circle cx="0" cy="0" r="3" fill="#ffffff" />
+
+    <!-- TOP ORB: Mindset (Brain) -->
+    <g transform="translate(0, -145)">
+      <circle cx="0" cy="0" r="54" fill="url(#mindsetGrad)" stroke="#38bdf8" stroke-width="2" filter="url(#neonGlow)" />
+      <!-- Brain Icon Contour -->
+      <path d="M-12,-16 C-22,-16 -24,-4 -20,2 C-26,8 -24,20 -14,20 C-10,20 -6,18 -4,15 C-2,18 2,18 4,15 C6,18 10,20 14,20 C24,20 26,8 20,2 C24,-4 22,-16 12,-16 C8,-16 4,-12 0,-8 C-4,-12 -8,-16 -12,-16 Z" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M-8,-6 C-14,-2 -12,8 -6,8 M8,-6 C14,-2 12,8 6,8 M0,-6 L0,14" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+      <text y="72" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#7dd3fc">MINDSET</text>
+    </g>
+
+    <!-- LEFT ORB: Heartset (Heart) -->
+    <g transform="translate(-145, 0)">
+      <circle cx="0" cy="0" r="54" fill="url(#heartsetGrad)" stroke="#fb7185" stroke-width="2" filter="url(#neonGlow)" />
+      <!-- Heart Icon Contour -->
+      <path d="M0,18 C-18,6 -24,-6 -24,-14 C-24,-20 -18,-24 -12,-24 C-6,-24 -2,-20 0,-16 C2,-20 6,-24 12,-24 C18,-24 24,-20 24,-14 C24,-6 18,6 0,18 Z" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <text y="72" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#fda4af">HEARTSET</text>
+    </g>
+
+    <!-- RIGHT ORB: Healthset (Lotus) -->
+    <g transform="translate(145, 0)">
+      <circle cx="0" cy="0" r="54" fill="url(#healthsetGrad)" stroke="#34d399" stroke-width="2" filter="url(#neonGlow)" />
+      <!-- Lotus Flower Icon Contour -->
+      <path d="M0,-22 C-6,-10 -12,4 0,16 C12,4 6,-10 0,-22 Z" fill="none" stroke="#ffffff" stroke-width="2.2" />
+      <path d="M0,16 C-12,12 -22,-2 -18,-14 C-10,-6 -4,6 0,16 Z" fill="none" stroke="#ffffff" stroke-width="2" />
+      <path d="M0,16 C12,12 22,-2 18,-14 C10,-6 4,6 0,16 Z" fill="none" stroke="#ffffff" stroke-width="2" />
+      <path d="M-18,12 C-10,18 10,18 18,12" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" />
+      <text y="72" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#6ee7b7">HEALTHSET</text>
+    </g>
+
+    <!-- BOTTOM ORB: Soulset (Meditator) -->
+    <g transform="translate(0, 145)">
+      <circle cx="0" cy="0" r="54" fill="url(#soulsetGrad)" stroke="#fde047" stroke-width="2" filter="url(#neonGlow)" />
+      <!-- Seated Yogi Contour -->
+      <circle cx="0" cy="-14" r="7" fill="none" stroke="#ffffff" stroke-width="2.2" />
+      <path d="M-10,3 C-16,8 -20,18 -18,22 C-14,24 -6,20 0,20 C6,20 14,24 18,22 C20,18 16,8 10,3 C6,0 -6,0 -10,3 Z" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+      <text y="72" text-anchor="middle" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" letter-spacing="2" fill="#fef08a">SOULSET</text>
+    </g>
+  </g>
+</svg>

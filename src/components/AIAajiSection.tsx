@@ -147,17 +147,39 @@ export const AIAajiSection: React.FC<AIAajiSectionProps> = ({ onJoinWaitlist }) 
               </div>
             </div>
 
-            {/* Launch Status & Waitlist Lead Capture */}
+            {/* Launch Status & Live Actions */}
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                <span className="font-mono text-xs text-amber-300 uppercase tracking-wider font-semibold">
-                  Status: In Architecture (Target Roadmap: 2027)
+                <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]" />
+                <span className="font-mono text-xs text-emerald-400 uppercase tracking-wider font-semibold">
+                  Status: LIVE · Voice Companion & Assistant
                 </span>
               </div>
-              <p className="text-sm text-neutral-300 font-light mb-6">
-                AI Aaji is actively being engineered as the second major node of EpicForce.ai. Join early notifications for closed technical briefings.
+              <p className="text-sm text-neutral-300 font-light mb-5">
+                AI Aaji is live as EpicForce.ai's intelligent conversational assistant. Experience the interactive voice session directly on this page or explore the full platform.
               </p>
+
+              {/* Dual Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('ai-aaji-demo');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white text-xs font-semibold tracking-wide transition-all inline-flex items-center justify-center gap-1.5 shadow-md shadow-cyan-500/20 cursor-pointer"
+                >
+                  <Mic className="w-3.5 h-3.5" />
+                  <span>Try Live Voice Demo</span>
+                </button>
+                <a
+                  href="https://aiaajiassistant.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium tracking-wide transition-colors inline-flex items-center justify-center gap-1.5"
+                >
+                  <span>Official Site ↗</span>
+                </a>
+              </div>
 
               {waitlistSubmitted ? (
                 <div className="p-4 rounded-xl bg-cyan-950/60 border border-cyan-500/30 text-cyan-200 text-sm flex items-center gap-3">
@@ -171,15 +193,14 @@ export const AIAajiSection: React.FC<AIAajiSectionProps> = ({ onJoinWaitlist }) 
                     required
                     value={waitlistEmail}
                     onChange={(e) => setWaitlistEmail(e.target.value)}
-                    placeholder="Enter email for technical briefings"
+                    placeholder="Enter email for ecosystem updates"
                     className="flex-1 px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-cyan-400 font-sans"
                   />
                   <button
                     type="submit"
-                    className="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-neutral-950 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
+                    className="px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-neutral-950 text-xs font-semibold uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
                   >
-                    <Bell className="w-3.5 h-3.5" />
-                    <span>Notify Me</span>
+                    <span>Get Updates</span>
                   </button>
                 </form>
               )}

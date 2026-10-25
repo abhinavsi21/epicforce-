@@ -1,0 +1,739 @@
+# EPICFORCE.AI — AI AAJI LIVE PRODUCT LAUNCH, REAL-TIME VOICE DEMO & WEBSITE-AWARE AI GUIDE
+
+## MASTER IMPLEMENTATION PROMPT — EXISTING WEBSITE ONLY
+
+You are working on the existing EpicForce.ai website.
+
+This is an incremental product launch and integration task. The website, navigation, sections, design system, and AI Website Guide already exist.
+
+**DO NOT rebuild the website. DO NOT redesign it. DO NOT replace the existing AI Guide.**
+
+AI Aaji is now available through its official website:
+
+https://aiaajiassistant.vercel.app/
+
+Previously, AI Aaji was presented as a product in development. Update its presentation to reflect its current availability, add a dedicated live demo directly beneath the existing Products section, and ensure the existing EpicForce.ai AI Guide understands the complete company website and all verified information about its products, founders, team, and ecosystem.
+
+The voice demo must reuse the existing AI Aaji production mechanism, including its Gemini Live real-time voice connection and Aoede voice configuration.
+
+Make only the changes required to achieve these objectives.
+
+---
+
+# PART 1 — INSPECT BEFORE MODIFYING
+
+Before changing code, inspect the existing EpicForce.ai project.
+
+Identify:
+
+1. The frontend framework, routing, styling system, component structure, and design tokens.
+2. The complete existing website structure and section order.
+3. The Products section and current AI Aaji product card.
+4. The existing AI Website Guide, its chatbot interface, centralized knowledge, FAQs, actions, and AI provider.
+5. Existing founder and team information.
+6. The Innerverse product section, its pathways, and its live platform link.
+7. Other products, partners, roadmap, Insights articles, contact information, and approved external destinations.
+8. The available AI Aaji project source code, production voice backend, Gemini Live connection, audio processing, voice orb, and session cleanup.
+9. Existing environment variables, server endpoints, WebSocket URLs, deployment architecture, and security controls.
+10. Existing tests and build commands.
+
+If AI Aaji and EpicForce.ai use separate repositories, do not assume their components can be imported directly.
+
+Reuse the available production implementation wherever possible. Verify actual compatibility before selecting an integration approach.
+
+Do not invent backend endpoints, credentials, product capabilities, or company facts.
+
+Before making changes, identify which files need to change and which must remain untouched.
+
+---
+
+# PART 2 — UPDATE AI AAJI FROM DEVELOPMENT TO LIVE
+
+AI Aaji is a product developed under EpicForce.ai.
+
+Find the existing AI Aaji product card in the Products section.
+
+Preserve its existing visual design, placement, styling, imagery, and animations as much as possible.
+
+Replace obsolete status labels such as:
+
+- Coming Soon
+- In Development
+- Under Construction
+- Launching Soon
+
+with a clear **LIVE** status where applicable.
+
+Use this product presentation:
+
+**Product name:** AI Aaji
+
+**Status:** LIVE
+
+**Suggested description:**
+
+“Meet AI Aaji, an intelligent AI assistant designed for natural interaction and real-time voice conversations. Experience AI Aaji through its live demo or visit the official product website.”
+
+Adapt the wording to the capabilities verified in the existing implementation.
+
+Add or update these actions:
+
+**Primary action:** Try AI Aaji Live
+
+Behavior: Scroll to the new AI Aaji demo section directly beneath Products.
+
+**Secondary action:** Visit AI Aaji Website ↗
+
+Destination:
+
+https://aiaajiassistant.vercel.app/
+
+Open the official website in a new tab using secure link attributes.
+
+Remove outdated development-related descriptions for AI Aaji only. Do not change the status of other EpicForce.ai products.
+
+Do not imply that every feature of AI Aaji is available if it has not been verified.
+
+---
+
+# PART 3 — ADD THE AI AAJI LIVE DEMO IMMEDIATELY BELOW PRODUCTS
+
+Add a dedicated section immediately after the existing Products section and before the next current section.
+
+Do not insert it inside Innerverse, Insights, the roadmap, or the footer.
+
+Keep the existing page structure and navigation intact.
+
+## Section content
+
+**Eyebrow**
+
+MEET AI AAJI
+
+**Heading**
+
+AI Aaji Is Live. Let's Talk.
+
+**Description**
+
+“Experience AI Aaji through a real-time voice conversation. Speak naturally, explore ideas, ask questions, and discover a more conversational way to interact with AI.”
+
+**Primary button**
+
+Start Free Live Demo
+
+**Secondary button**
+
+Visit AI Aaji Website ↗
+
+**Supporting labels**
+
+LIVE VOICE EXPERIENCE
+
+FREE TO TRY
+
+NO LOGIN REQUIRED — only if confirmed by the existing product's actual requirements.
+
+## Visual layout
+
+Create a premium, responsive section that feels native to the existing EpicForce.ai design.
+
+Include:
+
+- A dedicated demo panel.
+- The original AI Aaji voice orb or equivalent existing production assets.
+- Actual audio-reactive animation if supported by the existing implementation.
+- A clear connection-status indicator.
+- A start conversation button.
+- A microphone permission explanation when needed.
+- A visible end conversation button during an active session.
+- A restart option after a session ends.
+- Clear connecting, listening, speaking, disconnected, and error states, where supported.
+- A link to the official AI Aaji website.
+
+Use the website's existing fonts, spacing, colors, buttons, and visual language.
+
+Do not introduce an unrelated design system or duplicate the entire AI Aaji website.
+
+The demo must be a genuine interactive voice experience, not an illustration pretending to be functional.
+
+---
+
+# PART 4 — PRESERVE THE EXISTING GEMINI LIVE + AOEDE VOICE PIPELINE
+
+This is a critical requirement.
+
+AI Aaji's existing real-time voice assistant uses the Gemini Live voice pipeline with the Aoede voice configuration.
+
+**Reuse the existing production implementation. Do not build an independent voice assistant from scratch.**
+
+Inspect the actual AI Aaji codebase and preserve the existing:
+
+- Gemini Live model identifier.
+- Aoede voice selection.
+- Voice persona and system instructions.
+- Real-time WebSocket protocol.
+- Production backend and session initialization.
+- Audio input format and processing.
+- Microphone capture and streaming.
+- Incoming audio decoding and playback.
+- Voice activity detection and interruption behavior, if supported.
+- Existing voice orb and audio-reactive feedback.
+- Connection states, errors, retries, and reconnect behavior.
+- Session cleanup and resource management.
+- Any existing authentication, token generation, rate limits, or session controls.
+
+Do not replace the original model, voice, protocol, audio format, or conversation configuration merely to make integration easier.
+
+Do not assume that a public website URL automatically provides an embeddable voice service.
+
+## Gemini Live and Aoede requirements
+
+The embedded demo must use the same supported Gemini Live configuration used by the existing AI Aaji product.
+
+Verify that the current production configuration uses the Aoede voice. If it does, preserve it exactly.
+
+Do not silently substitute another voice.
+
+Do not create a browser-side Gemini API connection using a permanent secret key.
+
+Do not expose `GEMINI_API_KEY`, private tokens, server credentials, or other secrets in browser bundles or publicly exposed environment variables.
+
+## Choose the correct integration architecture
+
+After inspecting the available code, choose the smallest secure and reliable option.
+
+### Option A — Reuse the existing voice backend
+
+If the existing production backend supports connections from the EpicForce.ai origin, reuse its endpoint, session protocol, and audio implementation.
+
+### Option B — Shared service or secure proxy
+
+If necessary, add a minimal compatible backend route or same-origin WebSocket proxy using the existing deployment architecture.
+
+Preserve authentication, origin restrictions, rate limiting, session controls, and security safeguards.
+
+Verify actual WebSocket behavior, HTTPS compatibility, and production origin permissions.
+
+### Option C — Official website fallback
+
+If the existing production voice service cannot safely be embedded with the available code, make the demo's primary action open:
+
+https://aiaajiassistant.vercel.app/
+
+In that situation, the section should honestly present the official website as the place to try the live assistant.
+
+Do not show an inoperative microphone interface or claim that an embedded conversation is working when it has not been verified.
+
+The standalone AI Aaji website must remain operational and independently deployable.
+
+---
+
+# PART 5 — REAL CONVERSATION LIFECYCLE
+
+If the embedded demo is supported, implement the actual session lifecycle.
+
+## Starting a conversation
+
+1. The visitor explicitly clicks Start Free Live Demo.
+2. Explain why microphone access is needed when appropriate.
+3. Request microphone permission through the browser.
+4. Establish the supported production connection.
+5. Initialize the existing Gemini Live session using the original configuration and Aoede voice.
+6. Show the connecting state until the connection is confirmed.
+7. Start real audio streaming only after permission and session setup succeed.
+
+Never activate the microphone automatically on page load.
+
+## During a conversation
+
+- Stream microphone audio through the existing implementation.
+- Play the actual AI Aaji audio response.
+- Reflect the real connection and voice states in the UI.
+- Preserve supported interruptions and natural turn-taking.
+- Reuse the existing audio-reactive orb where available.
+- Display clear errors without exposing internal server information.
+
+Do not simulate a live connection or fake audio activity.
+
+## Ending a conversation
+
+When the visitor clicks End Conversation:
+
+- Stop microphone capture.
+- Stop all owned microphone media tracks.
+- Close or release the session using the existing protocol.
+- Stop pending playback.
+- Close audio contexts when appropriate.
+- Clear timers, event listeners, and pending callbacks.
+- Reset the UI to its disconnected state.
+
+Starting a new conversation must not leave old WebSockets, audio contexts, or microphone tracks running.
+
+Handle repeated clicks, unexpected disconnections, permission denial, network errors, and expired sessions safely.
+
+---
+
+# PART 6 — MAKE THE EXISTING AI GUIDE UNDERSTAND THE ENTIRE EPICFORCE.AI WEBSITE
+
+This is a mandatory upgrade to the existing AI Guide, not a replacement for it.
+
+The AI Guide must understand the entire existing EpicForce.ai website, including:
+
+1. Company identity, mission, and positioning.
+2. Founders and leadership.
+3. Team members and their verified roles.
+4. Products and their actual current status.
+5. Innerverse and its Life Navigation System positioning.
+6. AI Aaji and its live availability.
+7. Insights articles and research content.
+8. Promoting partners, including Melukat.
+9. Roadmap and development phases.
+10. Contact information and approved external links.
+11. Existing website sections, navigation destinations, and actions.
+
+It must answer questions about any of these topics accurately, support natural follow-up questions, and direct visitors to the right section or destination.
+
+Do not reduce the existing AI Guide to an AI Aaji promotional chatbot.
+
+Do not remove any current FAQ, website-navigation capability, conversational behavior, security logic, or approved actions.
+
+## Centralized verified knowledge source
+
+Inspect the existing knowledge architecture first.
+
+Update the existing source of truth instead of creating conflicting duplicate knowledge files.
+
+Ensure the knowledge source contains verified, structured information for:
+
+- Company
+- Mission
+- Vision and positioning
+- Founders
+- Team
+- Products
+- Innerverse
+- AI Aaji
+- Insights
+- Partners
+- Roadmap
+- Contact
+- Website navigation
+- Approved external destinations
+
+Each fact should be traceable to current website content, explicitly approved project information, or another verified source already available to the project.
+
+Where the website is the source of truth, inspect its actual content and preserve the correct names, titles, and descriptions.
+
+Do not guess missing founder names, roles, biographies, dates, achievements, or product capabilities.
+
+If a fact cannot be verified, mark it as unknown rather than inventing an answer.
+
+## Founder and team knowledge
+
+The AI Guide must be able to answer questions such as:
+
+- Who founded EpicForce.ai?
+- Who is part of the leadership team?
+- What is the role of each team member?
+- Who leads growth?
+- Who is responsible for a particular product?
+- What does each verified team member do?
+
+Use the actual founder and team details present in the current website and approved project knowledge.
+
+Preserve exact names and role titles. Do not infer a person's title from their responsibilities.
+
+If the requested information is absent, respond honestly and direct the visitor to the relevant team section or contact channel.
+
+## Innerverse knowledge
+
+The AI Guide must understand that Innerverse is a **Life Navigation System**.
+
+Use the actual approved Innerverse description and its existing pathways, including:
+
+- Purpose
+- Clarity
+- Discipline
+- Alignment
+- Healing
+
+Preserve the distinction between the Innerverse section on EpicForce.ai and the live Innerverse platform.
+
+Approved live platform:
+
+https://myinnerverse.in
+
+The Guide must know when to explain Innerverse, when to navigate to its website section, and when to open the live platform.
+
+Do not describe Innerverse primarily as a meditation app, therapy service, or generic self-help app.
+
+## AI Aaji knowledge
+
+Update the AI Guide's existing AI Aaji records.
+
+Approved product facts:
+
+- AI Aaji is a product developed under EpicForce.ai.
+- The official product website is available.
+- The official destination is https://aiaajiassistant.vercel.app/
+- Its real-time voice demo uses Gemini Live and the Aoede voice, as configured in the existing production implementation.
+- The embedded demo is available only if the actual integration has been implemented and verified.
+- The official website remains the fallback destination.
+
+Remove conflicting outdated claims that AI Aaji is still coming soon or unavailable.
+
+Do not claim unsupported capabilities or that an embedded demo works when only the external website link is available.
+
+## Other products and partners
+
+The AI Guide must retain knowledge of every other product and partner already present on the website.
+
+In particular:
+
+- Preserve the existing product information for Innerverse.
+- Preserve all other existing product descriptions and status values.
+- Treat Melukat as a promoting partner, not an EpicForce.ai-owned product.
+- Preserve the existing approved partner destination: https://melukat.app
+
+Do not remove existing knowledge or replace the whole knowledge base with AI Aaji information.
+
+## Insights and research articles
+
+Ensure the AI Guide can answer questions about the existing Insights section using the article titles, summaries, and content that are actually available to the website.
+
+It should be able to explain the article's main idea, identify the relevant article, and direct visitors to its approved full-text link.
+
+Do not fabricate research findings, scientific validation, or claims not supported by the published article.
+
+## Roadmap knowledge
+
+Retain the existing roadmap information exactly as approved in the current website.
+
+Answer questions about roadmap phases and timelines using verified website data.
+
+Do not convert tentative plans into promises or invent new launch dates.
+
+---
+
+# PART 7 — CONVERSATION CONTEXT AND WEBSITE AWARENESS
+
+Preserve the existing AI Guide UI and upgrade its knowledge and routing where necessary.
+
+The Guide must support multi-turn conversations.
+
+Example:
+
+Visitor: “Tell me about Innerverse.”
+
+AI Guide: Explains Innerverse using verified website information.
+
+Visitor: “Can I try it?”
+
+AI Guide: Understands that “it” refers to Innerverse and offers the correct live platform link.
+
+Another example:
+
+Visitor: “Who founded EpicForce?”
+
+AI Guide: Answers using verified founder information.
+
+Visitor: “What about their products?”
+
+AI Guide: Understands the company remains the topic and explains its verified products.
+
+Another example:
+
+Visitor: “What is AI Aaji?”
+
+AI Guide: Explains the product.
+
+Visitor: “Can I try it here?”
+
+AI Guide: Offers the on-site live demo only if it is functional, plus the official AI Aaji website.
+
+The Guide must resolve references such as “it,” “they,” “that product,” “their website,” and “show me this” using recent conversation context and the current page.
+
+Pass the actual current website section or route to the Guide when supported by the existing architecture.
+
+Do not pretend to see page content or know facts that are not available in the website knowledge source.
+
+---
+
+# PART 8 — INTENT ROUTING AND CONTROLLED ACTIONS
+
+Retain the existing controlled action registry.
+
+Add or update actions only as needed, such as:
+
+- GO_HOME
+- GO_PRODUCTS
+- GO_INNERVERSE
+- GO_AI_AAJI_DEMO
+- GO_INSIGHTS
+- GO_TEAM
+- GO_ROADMAP
+- GO_CONTACT
+- GO_PARTNERS
+- OPEN_AI_AAJI_WEBSITE
+- OPEN_INNERVERSE
+- OPEN_MELUKAT
+- OPEN_INSTAGRAM
+- OPEN_EMAIL
+
+Map each action to a real, existing section ID or approved destination.
+
+Do not invent IDs or route names.
+
+The AI may request an action, but the frontend must validate it against the approved action registry.
+
+Never allow AI-generated JavaScript, arbitrary function calls, arbitrary DOM selectors, or arbitrary external URLs.
+
+## Approved external destinations
+
+AI Aaji:
+
+https://aiaajiassistant.vercel.app/
+
+Innerverse live platform:
+
+https://myinnerverse.in
+
+Melukat partner:
+
+https://melukat.app
+
+EpicForce.ai Instagram:
+
+https://www.instagram.com/epicforce.ai/?hl=en
+
+Email:
+
+mailto:nsh.aimac@gmail.com
+
+Retain any other currently approved destinations already in the project.
+
+Do not remove existing allowlisted links.
+
+---
+
+# PART 9 — AI REASONING AND FACTUAL ACCURACY
+
+The Guide must use the existing verified knowledge as its source of truth.
+
+Recommended processing flow:
+
+1. Receive the visitor's message.
+2. Identify the current page and recent conversation context.
+3. Resolve follow-up references.
+4. Classify the intent.
+5. Identify relevant company entities.
+6. Check the existing FAQ system.
+7. Retrieve relevant verified website knowledge.
+8. Use the AI provider for questions that need reasoning or synthesis.
+9. Validate factual claims and any requested actions.
+10. Return a concise, helpful answer with appropriate navigation options.
+
+Use deterministic FAQ responses for common questions where appropriate.
+
+Use the existing AI provider for natural conversation and more complex questions.
+
+Do not replace the existing AI Guide provider unnecessarily.
+
+Do not send every request directly to an LLM if the existing architecture already has a fast FAQ or routing path.
+
+The Guide must never invent:
+
+- Founders or team members.
+- Company achievements.
+- Investors or funding.
+- Revenue or customer numbers.
+- Product features.
+- Partnerships.
+- Research findings.
+- Launch dates.
+- Roadmap commitments.
+
+When information is missing, say so clearly and offer a relevant next step.
+
+Preserve the current prompt-injection defenses, server-side secrets, URL validation, rate limits, and privacy safeguards.
+
+---
+
+# PART 10 — KEEP THE VOICE DEMO AND WEBSITE GUIDE DISTINCT
+
+There are two separate experiences.
+
+## A. Existing EpicForce.ai AI Guide
+
+This is the website-wide chatbot.
+
+It explains the company, founders, team, products, Innerverse, AI Aaji, Insights, partners, and roadmap.
+
+It supports text-based natural conversation, follow-up questions, and controlled website navigation.
+
+Keep its existing UI and functionality.
+
+## B. AI Aaji live voice demo
+
+This is the product experience inside the new section below Products.
+
+It provides the existing real-time voice conversation using the verified Gemini Live pipeline and Aoede voice.
+
+It has its own microphone permission, connection state, audio playback, session lifecycle, and end/restart controls.
+
+Do not merge the two experiences into one interface or replace the website-wide Guide with the voice demo.
+
+They may share approved knowledge or infrastructure only when technically appropriate and secure.
+
+---
+
+# PART 11 — SECURITY, COST, AND PRIVACY
+
+Preserve the existing security architecture.
+
+Requirements:
+
+- No Gemini API keys in browser bundles.
+- No permanent secret credentials in public environment variables.
+- Use the existing secure production connection or supported server-side token mechanism.
+- Validate connection requests.
+- Preserve origin restrictions and authentication if required.
+- Retain existing rate limits and connection limits.
+- Avoid unlimited concurrent sessions.
+- Clean up abandoned WebSockets and audio resources.
+- Do not persist voice conversations unnecessarily.
+- Do not log private audio or sensitive conversation content unnecessarily.
+- Sanitize errors shown to visitors.
+- Do not expose internal prompts, environment variables, or server configuration.
+
+Do not add unnecessary databases, authentication systems, payment gates, or infrastructure.
+
+---
+
+# PART 12 — VISUAL DESIGN AND RESPONSIVENESS
+
+Follow the existing EpicForce.ai visual identity.
+
+- Preserve existing fonts, colors, spacing, and component patterns.
+- Keep the existing navigation and page composition.
+- Place the new demo immediately after Products.
+- Make the AI Aaji card and live demo feel like one coherent product journey.
+- Reuse existing AI Aaji assets wherever available.
+- Make the layout responsive across phones, tablets, and desktops.
+- Avoid horizontal overflow and clipped controls.
+- Respect reduced-motion settings.
+- Provide accessible labels, keyboard support, and visible focus states.
+- Do not load microphone resources until a visitor explicitly starts a session.
+- Do not request microphone permission when the page loads.
+
+Do not redesign unrelated sections.
+
+---
+
+# PART 13 — TESTING AND ACCEPTANCE CRITERIA
+
+Run the existing build and test suite before and after the changes.
+
+## Product launch
+
+- The AI Aaji product card displays the correct live status.
+- Outdated development labels are removed from AI Aaji only.
+- The Try AI Aaji Live button scrolls to the new section.
+- The official website link opens https://aiaajiassistant.vercel.app/ correctly.
+
+## Live voice integration
+
+- The demo uses the actual production Gemini Live mechanism.
+- The existing model configuration and Aoede voice are preserved.
+- Microphone permission works.
+- Real audio reaches the production service.
+- Actual spoken AI Aaji responses play in the browser.
+- Ending and restarting sessions works.
+- Errors and unexpected disconnects are handled.
+- Microphone tracks, audio contexts, and WebSockets are cleaned up.
+- No secret API keys are exposed.
+
+## Website-wide AI Guide
+
+Test questions such as:
+
+- What is EpicForce.ai?
+- What is the mission?
+- Who founded EpicForce.ai?
+- Who is on the team?
+- What does each founder or team member do?
+- What products does EpicForce have?
+- What is Innerverse?
+- Where can I try Innerverse?
+- What is AI Aaji?
+- Can I try AI Aaji?
+- Is AI Aaji live?
+- Can I talk to AI Aaji here?
+- What is the Insights section about?
+- Tell me about the Seven Scores article.
+- What is Melukat?
+- Is Melukat an EpicForce product?
+- What is the roadmap?
+- How can I contact EpicForce?
+
+Verify that the Guide uses actual website facts rather than invented answers.
+
+Test follow-up questions such as:
+
+- Can I try it?
+- Who created it?
+- Where can I open it?
+- What other products do they have?
+- Show me that section.
+
+Test prompt injection and requests for private information. Confirm the Guide does not reveal secrets or fabricate company claims.
+
+## Regression testing
+
+Confirm:
+
+- Existing navigation works.
+- Innerverse links still work.
+- Insights links still work.
+- Melukat remains correctly identified as a partner.
+- Roadmap and team sections remain intact.
+- Existing forms, animations, buttons, and chatbot behavior remain functional.
+- Mobile and desktop layouts remain correct.
+- The standalone AI Aaji website remains operational.
+
+Do not report a real voice test as successful unless a real conversation was completed.
+
+If the source code, credentials, backend, or deployment access is unavailable, report the specific limitation rather than pretending the integration is complete.
+
+---
+
+# PART 14 — FINAL IMPLEMENTATION REPORT
+
+After implementation, report:
+
+1. Which files were changed.
+2. Where the new AI Aaji demo appears.
+3. How the existing production Gemini Live and Aoede voice pipeline is reused.
+4. Whether backend or environment changes were required.
+5. How the official AI Aaji website link works.
+6. How the existing AI Guide's knowledge was updated.
+7. Which founder, team, product, Innerverse, Insights, and partner facts are covered.
+8. Build and automated test results.
+9. Whether a genuine live voice conversation was verified.
+10. Any remaining production deployment or configuration steps.
+
+## FINAL NON-NEGOTIABLE INSTRUCTIONS
+
+- Treat AI Aaji as a live product.
+- Place the dedicated demo immediately beneath Products.
+- Reuse the existing Gemini Live real-time voice mechanism and Aoede voice.
+- Do not replace the working voice pipeline.
+- Preserve the existing EpicForce.ai AI Guide.
+- Ensure the Guide understands the entire verified website, including founders, team, Innerverse, other products, Insights, partners, and roadmap.
+- Keep the official AI Aaji website accessible at https://aiaajiassistant.vercel.app/
+- Preserve all unrelated website functionality.
+- Do not invent facts or claim unverified functionality.
+- Do not rebuild or redesign the existing website.
+
+**Think like a senior full-stack engineer and AI systems architect. Inspect first, make the smallest correct changes, and verify the actual behavior before declaring completion.**

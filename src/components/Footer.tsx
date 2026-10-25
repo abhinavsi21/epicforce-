@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Instagram, Mail } from 'lucide-react';
 import {
   INNERVERSE_URL,
+  MELUKAT_URL,
   INSTAGRAM_URL,
   CONTACT_EMAIL,
   LINKEDIN_URL,
@@ -22,9 +23,9 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#05070F] text-white border-t border-white/10 pt-16 sm:pt-20 pb-12 w-full max-w-[100vw]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12 pb-12 sm:pb-16 border-b border-white/10">
-          {/* Brand lockup */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-10 pb-12 sm:pb-16 border-b border-white/10">
+          {/* Brand lockup (col-span-4) */}
+          <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <Link
                 to="/"
@@ -44,14 +45,14 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="mt-6 sm:mt-8 space-y-2 text-xs font-mono text-neutral-400">
-              <p>San Francisco · Mumbai · Global</p>
+              <p>India · USA</p>
               <p className="text-neutral-400">
                 Contact:{' '}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
                   onClick={() => trackEvent('email_click', { source: 'footer' })}
                   className="text-[#22D3EE] hover:underline"
-                  aria-label="Email EpicForce.ai"
+                  aria-label="Email EpicForce.ai at nsh.aimac@gmail.com"
                 >
                   {CONTACT_EMAIL}
                 </a>
@@ -59,8 +60,8 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation Links */}
-          <div className="lg:col-span-3">
+          {/* Navigation Links (col-span-2) */}
+          <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-semibold mb-4 sm:mb-6">
               Navigation
             </h4>
@@ -68,7 +69,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollTo('mission')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
                 >
                   Mission & Thesis
                 </button>
@@ -76,7 +77,7 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollTo('pillars')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
                 >
                   Core Pillars
                 </button>
@@ -84,15 +85,31 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollTo('products')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
                 >
                   Products Ecosystem
                 </button>
               </li>
               <li>
                 <button
+                  onClick={() => scrollTo('innerverse')}
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                >
+                  Innerverse Showcase
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollTo('insights')}
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full text-cyan-300"
+                >
+                  Insights & Research
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollTo('founders')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
                 >
                   Leadership & Team
                 </button>
@@ -100,61 +117,97 @@ export const Footer: React.FC = () => {
               <li>
                 <button
                   onClick={() => scrollTo('roadmap')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full"
                 >
                   Strategic Roadmap
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollTo('contact')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
-                >
-                  Contact & Inquiries
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Ecosystem Products: myinnerverse.in and AI Aaji */}
+          {/* Primary EpicForce Products (col-span-2) */}
           <div className="lg:col-span-2">
             <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-semibold mb-4 sm:mb-6">
               Products
             </h4>
-            <ul className="space-y-2 text-sm text-neutral-300">
+            <ul className="space-y-2.5 text-sm text-neutral-300">
               <li>
                 <a
                   href={INNERVERSE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('innerverse_cta_click', { source: 'footer_product_link' })}
-                  className="py-1.5 hover:text-[#22D3EE] transition-colors flex items-center gap-1 group"
-                  aria-label="Innerverse live website (myinnerverse.in)"
+                  className="py-1 hover:text-[#22D3EE] transition-colors flex items-center gap-1 group font-medium"
+                  aria-label="Launch Live Innerverse on innervers.ai.studio (opens in new tab)"
                 >
                   <span>Innerverse</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#22D3EE] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </a>
                 <span className="block text-[11px] font-mono text-neutral-400">
-                  myinnerverse.in
+                  innervers.ai.studio
                 </span>
               </li>
               <li className="pt-2">
                 <button
                   onClick={() => scrollTo('ai-aaji')}
-                  className="py-1.5 hover:text-white transition-colors cursor-pointer text-left block w-full"
+                  className="py-1 hover:text-white transition-colors cursor-pointer text-left block w-full font-medium"
                 >
                   AI Aaji
                 </button>
                 <span className="block text-[11px] font-mono text-cyan-400">
-                  Coming Soon
+                  In Architecture
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Dedicated Promoting Partners Category (col-span-2) - Requirement 18 */}
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-xs uppercase tracking-widest text-amber-400 font-semibold mb-4 sm:mb-6">
+              Partners
+            </h4>
+            <ul className="space-y-2.5 text-sm text-neutral-300">
+              <li>
+                <a
+                  href={MELUKAT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent('partner_click', { partner: 'melukat', url: MELUKAT_URL })}
+                  className="py-1 hover:text-amber-300 transition-colors flex items-center gap-1 group font-medium"
+                  aria-label="Explore Melukat Meditation Center on melukat.app (opens in new tab)"
+                >
+                  <span>Melukat</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-amber-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+                <span className="block text-[11px] font-mono text-neutral-400">
+                  Meditation Center · melukat.app
                 </span>
               </li>
             </ul>
 
             <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-semibold mt-6 mb-3">
-              Social
+              Trust & Legal
             </h4>
-            <ul className="space-y-2 text-sm text-neutral-300">
+            <ul className="space-y-1.5 text-xs text-neutral-400">
+              <li>
+                <Link to="/privacy" className="hover:text-white transition-colors block py-0.5">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="hover:text-white transition-colors block py-0.5">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social & Contact (col-span-2) - Requirement 19 */}
+          <div className="lg:col-span-2">
+            <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-semibold mb-4 sm:mb-6">
+              Connect
+            </h4>
+            <ul className="space-y-2.5 text-sm text-neutral-300">
               <li>
                 <a
                   href={INSTAGRAM_URL}
@@ -162,7 +215,7 @@ export const Footer: React.FC = () => {
                   rel="noopener noreferrer"
                   onClick={() => trackEvent('instagram_click', { source: 'footer' })}
                   className="py-1 hover:text-pink-400 transition-colors inline-flex items-center gap-1.5 group"
-                  aria-label="EpicForce.ai on Instagram"
+                  aria-label="EpicForce.ai on Instagram (opens in new tab)"
                 >
                   <Instagram className="w-3.5 h-3.5 text-pink-400" />
                   <span>Instagram</span>
@@ -171,13 +224,25 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  onClick={() => trackEvent('email_click', { source: 'footer' })}
+                  className="py-1 hover:text-cyan-300 transition-colors inline-flex items-center gap-1.5 group"
+                  aria-label="Email EpicForce.ai at nsh.aimac@gmail.com"
+                >
+                  <Mail className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Email</span>
+                  <ArrowUpRight className="w-3 h-3 text-cyan-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </li>
+              <li>
+                <a
                   href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-1 hover:text-white transition-colors block"
-                  aria-label="EpicForce.ai on LinkedIn"
+                  className="py-1 hover:text-white transition-colors block text-xs font-mono text-neutral-400"
+                  aria-label="EpicForce.ai on LinkedIn (opens in new tab)"
                 >
-                  LinkedIn
+                  LinkedIn ↗
                 </a>
               </li>
               <li>
@@ -185,42 +250,23 @@ export const Footer: React.FC = () => {
                   href={TWITTER_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-1 hover:text-white transition-colors block"
-                  aria-label="EpicForce.ai on X Twitter"
+                  className="py-1 hover:text-white transition-colors block text-xs font-mono text-neutral-400"
+                  aria-label="EpicForce.ai on X Twitter (opens in new tab)"
                 >
-                  X (Twitter)
+                  X (Twitter) ↗
                 </a>
               </li>
             </ul>
-          </div>
 
-          {/* Legal and Direct Inquiries */}
-          <div className="lg:col-span-2">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-neutral-300 font-semibold mb-4 sm:mb-6">
-              Legal & Trust
-            </h4>
-            <ul className="space-y-2 text-sm text-neutral-300">
-              <li>
-                <Link to="/privacy" className="py-1.5 hover:text-white transition-colors block">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms" className="py-1.5 hover:text-white transition-colors block">
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-
-            <div className="mt-8 pt-4 border-t border-white/10">
+            <div className="mt-6 pt-4 border-t border-white/10">
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 onClick={() => trackEvent('email_click', { source: 'footer_direct_button' })}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
                 aria-label="Email Us at nsh.aimac@gmail.com"
               >
                 <Mail className="w-3 h-3 text-[#22D3EE]" />
-                <span>Email Us →</span>
+                <span>Transmit Inquiry →</span>
               </a>
             </div>
           </div>
@@ -229,9 +275,7 @@ export const Footer: React.FC = () => {
         {/* Bottom copyright line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-neutral-400 text-center sm:text-left">
           <p>© 2026 EpicForce.ai. All rights reserved.</p>
-          <p className="text-neutral-400">
-            Powered by force, guided by AI.
-          </p>
+          <p className="text-neutral-400">Powered by force, guided by AI.</p>
         </div>
       </div>
     </footer>

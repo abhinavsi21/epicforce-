@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from './pages/Home';
+import { InnerverseExperiencePage } from './pages/InnerverseExperiencePage';
 import { ContactPage } from './pages/ContactPage';
 import { LegalPage } from './pages/LegalPage';
 import { NotFoundPage } from './pages/NotFound';
+import { EpicForceChatbot } from './components/chat/EpicForceChatbot';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -29,11 +31,15 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/innerverse" element={<InnerverseExperiencePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<LegalPage />} />
         <Route path="/terms" element={<LegalPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      {/* Official EpicForce AI Guide Chatbot (Intelligent Concierge Layer) */}
+      <EpicForceChatbot />
     </BrowserRouter>
   );
 }

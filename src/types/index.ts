@@ -44,3 +44,19 @@ export interface RoadmapPhase {
   status: 'current' | 'upcoming' | 'future';
   milestones: string[];
 }
+
+export interface Partner {
+  id: string;
+  name: string;
+  category: 'Promoting Partner' | 'Featured Partner';
+  url: string;
+  cta: string;
+  headline: string;
+  subheadline: string;
+  description: string;
+  tagline: string;
+  image?: string;
+  imageAlt?: string;
+  founderOrTeacher?: string;
+  focusAreas?: string[];
+}
