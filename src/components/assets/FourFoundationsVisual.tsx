@@ -23,23 +23,29 @@ export const FourFoundationsVisual: React.FC<FourFoundationsVisualProps> = ({
   // Initialize from user's uploaded image in localStorage or provided source / public files
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        setActiveImage(saved);
-        return;
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved && saved.length > 100) {
+          setActiveImage(saved);
+          return;
+        }
+      } catch {
+        // Safe no-op in private browsing
       }
     }
     if (imageSrc) {
       setActiveImage(imageSrc);
     } else {
-      setActiveImage('/image.png');
+      setActiveImage('/four-foundations.svg');
     }
   }, [imageSrc]);
 
   const handleImageError = () => {
-    // If /image.png fails and wasn't loaded from localStorage, try /four-foundations.svg before falling back
-    if (activeImage === '/image.png') {
-      setActiveImage('/four-foundations.svg');
+    // Graceful cascade: /four-foundations.svg -> /four-foundations.png -> /image.png -> high-fidelity inline SVG
+    if (activeImage === '/four-foundations.svg') {
+      setActiveImage('/four-foundations.png');
+    } else if (activeImage === '/four-foundations.png') {
+      setActiveImage('/image.png');
     } else {
       setHasImageError(true);
     }
@@ -51,7 +57,7 @@ export const FourFoundationsVisual: React.FC<FourFoundationsVisualProps> = ({
       role="img"
       aria-label="The Four Foundations of Life: Mindset, Heartset, Healthset, and Soulset"
     >
-      {/* 1. User Uploaded Artwork Display */}
+      {/* 1. Official Artwork Display */}
       {!hasImageError && activeImage ? (
         <img
           src={activeImage}
@@ -59,6 +65,7 @@ export const FourFoundationsVisual: React.FC<FourFoundationsVisualProps> = ({
           onError={handleImageError}
           className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover/visual:scale-105"
           loading="eager"
+          decoding="async"
         />
       ) : (
         /* 2. Fallback High-Fidelity Mandala Composition */
